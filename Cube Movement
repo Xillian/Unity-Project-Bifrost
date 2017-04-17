@@ -1,0 +1,24 @@
+Using UnityEngine;
+Using system.Collections;
+
+Public Class CubeMovement : Monobehavior {
+
+    Public Float speed;
+    
+    Private RigidBody rb;
+    
+    
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+    
+    void FixedUpdate()
+    {
+        float moveHorizontal = Input.GetAxis ("Horizontal");
+        
+        Vector2 movement = new Vector2 (moveHorizontal,0.0f);
+        
+        rb.AddForce (movement * speed);
+    }
+}
